@@ -102,6 +102,7 @@
 	display: inline-block;
 	font-weight: bold;
 	padding: 1%;
+	transition: all ease-in-out .3s;
 }
 
 button {
