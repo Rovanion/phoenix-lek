@@ -53,10 +53,10 @@ config :boken, BokenWeb.Endpoint,
 config :boken, BokenWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/boken_web/(live|views)/[^#].*(ex)$",
-      ~r"lib/boken_web/templates/[^#].*(eex)$"
+      ~r"priv/static/.+\.(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"priv/gettext/.+\.(po)$",
+      ~r"lib/boken_web/(live|views)/[^\.#].+\.(ex)$",
+      ~r"lib/boken_web/templates/[^\.#].+\.(eex)$"
     ]
   ]
 
