@@ -1,0 +1,32 @@
+<h1>Show Lampa</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal BokenWeb.LampaLive.FormComponent,
+    id: @lampa.id,
+    title: @page_title,
+    action: @live_action,
+    lampa: @lampa,
+    return_to: Routes.lampa_show_path(@socket, :show, @lampa) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Namn:</strong>
+    <%= @lampa.namn %>
+  </li>
+
+  <li>
+    <strong>Ljusstyrka:</strong>
+    <%= @lampa.ljusstyrka %>
+  </li>
+
+  <li>
+    <strong>På:</strong>
+    <%= @lampa.på %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.lampa_show_path(@socket, :edit, @lampa), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.lampa_index_path(@socket, :index) %></span>

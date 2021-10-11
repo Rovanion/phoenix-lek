@@ -105,6 +105,11 @@
 	transition: all ease-in-out .3s;
 }
 
+.bar.false {
+	background: grey;
+}
+
+
 button {
 	font-size: 16pt;
 }

@@ -55,8 +55,9 @@ config :boken, BokenWeb.Endpoint,
     patterns: [
       ~r"priv/static/.+\.(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.+\.(po)$",
-      ~r"lib/boken_web/(live|views)/[^\.#].+\.(ex)$",
-      ~r"lib/boken_web/templates/[^\.#].+\.(eex)$"
+      ~r"lib/boken/[^\.#].+(ex)$",
+			~r"lib/boken_web/(live|views)/[^\.#].+(ex)$",
+      ~r"lib/boken_web/templates/[^\.#].+(eex)$"
     ]
   ]
 

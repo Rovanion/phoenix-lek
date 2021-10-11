@@ -1,0 +1,39 @@
+<h1>Listing Lampor</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <%= live_modal BokenWeb.LampaLive.FormComponent,
+    id: @lampa.id || :new,
+    title: @page_title,
+    action: @live_action,
+    lampa: @lampa,
+    return_to: Routes.lampa_index_path(@socket, :index) %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Ljusstyrka</th>
+      <th>På</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="lampor">
+    <%= for lampa <- @lampor do %>
+      <tr id={"lampa-#{lampa.id}"}>
+        <td><%= lampa.namn %></td>
+        <td><%= lampa.ljusstyrka %></td>
+        <td><%= lampa.på %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.lampa_show_path(@socket, :show, lampa) %></span>
+          <span><%= live_patch "Edit", to: Routes.lampa_index_path(@socket, :edit, lampa) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: lampa.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Lampa", to: Routes.lampa_index_path(@socket, :new) %></span>

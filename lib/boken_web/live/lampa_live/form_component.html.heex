@@ -1,0 +1,37 @@
+<div>
+  <h2><%= @title %></h2>
+
+  <.form
+    let={f}
+    for={@changeset}
+    id="lampa-form"
+    phx-target={@myself}
+    phx-change="validate"
+    phx-submit="save">
+
+    <%= label f, :namn %>
+    <%= text_input f, :namn %>
+    <%= error_tag f, :namn %>
+
+		<div class="meter">
+		  <span class="bar" style={"width: #{@lampa.ljusstyrka}%"}>
+		    <%= @lampa.ljusstyrka %>%
+		  </span>
+		</div>
+		<button phx-click="decrement">-</button>
+		<button phx-click="toggle">💡</button>
+		<button phx-click="increment">+</button>
+
+    <%= label f, :ljusstyrka %>
+    <%= number_input f, :ljusstyrka %>
+    <%= error_tag f, :ljusstyrka %>
+
+    <%= label f, :på %>
+    <%= checkbox f, :på %>
+    <%= error_tag f, :på %>
+
+    <div>
+      <%= submit "Save", phx_disable_with: "Saving..." %>
+    </div>
+  </.form>
+</div>

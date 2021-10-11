@@ -18,7 +18,17 @@ defmodule BokenWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/redirect_test", PageController, :redirect_test
+		resources "/products", ProductController
+
 		live "/light", LightLive
+
+		live "/lampor", LampaLive.Index, :index
+    live "/lampor/new", LampaLive.Index, :new
+    live "/lampor/:id/edit", LampaLive.Index, :edit
+
+		live "/lampor/:id", LampaLive.Show, :show
+    live "/lampor/:id/show/edit", LampaLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
